@@ -7,11 +7,9 @@
  */
 
 class NoValidIp extends Exception{
-
     function __contruct( $e ){
         echo $e;
     }
-
 }
 
 
@@ -30,6 +28,7 @@ class Ip {
 
         if($ip == "localhost"){
             $this->ip = "127.0.0.1";
+            $this->setIpBinary();
             $this->isPrivate = true;
             return;
         }
@@ -51,6 +50,7 @@ class Ip {
             $this->setPrivate();
         }else{
             $this->isIp4 = false;
+            $this->isPrivate = $this->ip == "::1";
             foreach( explode(":",$this->ip) as $ip ){
                if( $ip == "" ){
                    array_push($this->ipbinary,"0000000000000000");
@@ -102,6 +102,7 @@ class Ip {
             substr($this->getString(),0,12) == "101011000001" ||
             substr($this->getString(),0,8)  == "00001010"     ||
             substr($this->getString(),0,16) == "1100000010101000";
+
     }
 
     public function isPrivate(){
