@@ -97,11 +97,27 @@ class Ip {
         }
         return substr($network->getString(),0,(int)$address[1]) == substr($this->getString(),0,(int)$address[1]);
     }
+
     private function setPrivate(){
         $this->isPrivate =
             substr($this->getString(),0,12) == "101011000001" ||
             substr($this->getString(),0,8)  == "00001010"     ||
             substr($this->getString(),0,16) == "1100000010101000";
+    }
+
+    public function getClass(){
+
+        if( !$this->isIp4 )
+            return null;
+        $binary = $this->getString();
+
+        if( $binary[0] == "0" )
+            return "A";
+        elseif( substr($binary,0,2) == "10" )
+            return "B";
+        elseif( substr($binary,0,3) == "110" )
+            return "C";
+
 
     }
 

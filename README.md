@@ -42,7 +42,7 @@ var_dump((new Ip("192.168.1.111"))->isPrivate());//true
 var_dump((new Ip("192.169.2.111"))->isPrivate());//false
 ```
 
-#### Invalid IP address
+###### Invalid IP address
 
 ```php
 try{
@@ -50,4 +50,13 @@ try{
 }catch (NoValidIp $e){
     echo $e->getMessage(); //'Invalid IP'
 }
+```
+
+###### Get IP class
+
+```php
+var_dump((new Ip("2001:738:3100:241::1"))->getClass()); //null
+var_dump((new Ip("10.0.1.1"))->getClass()); // A
+var_dump((new Ip("172.16.1.1"))->getClass()); // B
+var_dump((new Ip("192.168.1.1"))->getClass()); // C
 ```

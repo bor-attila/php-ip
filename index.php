@@ -26,8 +26,7 @@ var_dump((new Ip("10.4.12.255"))->isInNetwork("10.4.12.0/22"));//true
 var_dump((new Ip("10.4.15.255"))->isInNetwork("10.4.12.0/22"));//true
 var_dump((new Ip("10.4.16.1"))->isInNetwork("10.4.12.0/22"));//false
 var_dump((new Ip("localhost"))->isInNetwork("10.4.12.0/22"));//false
-var_dump((new Ip("localhost"))->isInNetwork("10.4.12.0/22"));//true
-
+var_dump((new Ip("localhost"))->isInNetwork("10.4.12.0/22"));//false
 
 var_dump((new Ip("localhost"))->isPrivate());//true
 var_dump((new Ip("192.168.1.111"))->isPrivate());//true
@@ -43,3 +42,8 @@ try{
 }catch (NoValidIp $e){
     echo $e->getMessage(); //'Invalid IP'
 }
+
+var_dump((new Ip("2001:738:3100:241::1"))->getClass()); //null
+var_dump((new Ip("10.0.1.1"))->getClass()); // A
+var_dump((new Ip("172.16.1.1"))->getClass()); // B
+var_dump((new Ip("192.168.1.1"))->getClass()); // C
