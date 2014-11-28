@@ -34,7 +34,6 @@ var_dump((new Ip("localhost"))->isInNetwork("10.4.12.0/22"));//true
 ###### IpV6
 
 ```php
-
 var_dump((new Ip("2001:738:3100:241::1"))->isInNetwork("2001:738:3100:241::/64"));//true
 var_dump((new Ip("2001:938:3100:241::1"))->isInNetwork("2001:738:3100:241::/64"));//true
 
@@ -43,3 +42,12 @@ var_dump((new Ip("192.168.1.111"))->isPrivate());//true
 var_dump((new Ip("192.169.2.111"))->isPrivate());//false
 ```
 
+#### Invalid IP address
+
+```php
+try{
+    $badIp = new Ip("198.1111.11.11");
+}catch (NoValidIp $e){
+    echo $e->getMessage(); //'Invalid IP'
+}
+```
