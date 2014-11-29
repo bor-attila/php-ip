@@ -15,6 +15,11 @@ echo $myip . PHP_EOL;
 echo $myip->getIp() . PHP_EOL;
 var_dump($myip->isPrivate());
 
+$myip = new Ip();
+echo $myip . PHP_EOL;
+echo $myip->getIp() . PHP_EOL;
+var_dump($myip->isPrivate());
+
 var_dump((new Ip("192.168.1.1"))->isInNetwork("192.168.1.1/24")); //true
 var_dump((new Ip("192.168.1.1"))->isInNetwork("192.168.1.1/25")); //true
 var_dump((new Ip("192.168.1.1"))->isInNetwork("192.168.1.1/32"));//true

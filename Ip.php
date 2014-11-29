@@ -20,7 +20,11 @@ class Ip {
     private $ipbinary = [];
     private $isIp4 = true;
 
-    public function __construct( $ip ) {
+    public function __construct( $ip = null ) {
+
+        if(is_null($ip)){
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
 
         if( !is_string($ip) ){
             throw new NoValidIp("The ip must be string");

@@ -11,6 +11,12 @@ $myip = new Ip("localhost");
 echo $myip . PHP_EOL; // 01111111000000000000000000000001
 echo $myip->getIp() . PHP_EOL; //127.0.0.1
 var_dump($myip->isPrivate()); // true
+
+$myip = new Ip();//REMOTE_ADDR
+echo $myip . PHP_EOL;
+echo $myip->getIp() . PHP_EOL;
+var_dump($myip->isPrivate());
+
 ```
 
 ###### If you want to check if an IP address is on network use CIDR. It's usefull when you want to detect intranet.
