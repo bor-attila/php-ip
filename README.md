@@ -1,7 +1,7 @@
 IP utility for PHP
 ======
 
-###### It's a simple utility for PHP for validating IP addresses, and check if it's an IP is on the specified network.
+###### It's a simple PHP utility for validating IP addresses, and for checking wether an IP is on a specified network.
 
 
 Example:
@@ -19,7 +19,7 @@ var_dump($myip->isPrivate());
 
 ```
 
-###### If you want to check if an IP address is on network use CIDR. It's usefull when you want to detect intranet.
+###### If you would like to check wether an IP address is on a network, you have to use CIDR format. It's usefull when you would like to detect wether it is intranet or not.
 
 
 ```php
